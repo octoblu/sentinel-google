@@ -14,7 +14,7 @@ var GOOGLE_PASSWORD = system.env.GOOGLE_PASSWORD;
 
 if(!GOOGLE_USERNAME || !GOOGLE_PASSWORD) casper.die('Missing required env: GOOGLE_USERNAME or GOOGLE_PASSWORD')
 
-
+casper.userAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36');
 casper.start('https://app.octoblu.com/');
 
 casper.waitForText("Google+")
@@ -40,6 +40,17 @@ casper.then(function(){
   })
   this.click("#signIn")
 })
+
+casper.waitForSelector("#challenge", function(){
+  this.fill('#challenge', {
+    'email': 'sqrtofsaturn@gmail.com'
+  })
+  this.capture("challenge.png")
+  this.click("#submit")
+}, function(){
+  // Guess we're not getting challenged this time
+  // This function has to exist to ignore the timeout error
+});
 
 casper.waitForText("dashboard", function(){
   this.echo("success");

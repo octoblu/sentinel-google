@@ -1,6 +1,6 @@
 {
-  "name": "sentinel-facebook",
-  "version": "0.0.0",
+  "name": "sentinel-google",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/octoblu/sentinel-facebook.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/octoblu/sentinel-facebook/issues"
   },

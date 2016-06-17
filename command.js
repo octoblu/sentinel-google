@@ -1,13 +1,19 @@
 #!/usr/bin/env casperjs
 
 var system = require('system');
-var casper = require('casper').create();
+var casper = require('casper').create({
+  onError: (function(error){
+    casper.echo("failure due to error: " + error)
+    casper.exit(1)
+  })
+});
 
 
 var GOOGLE_USERNAME = system.env.GOOGLE_USERNAME;
 var GOOGLE_PASSWORD = system.env.GOOGLE_PASSWORD;
 
 if(!GOOGLE_USERNAME || !GOOGLE_PASSWORD) casper.die('Missing required env: GOOGLE_USERNAME or GOOGLE_PASSWORD')
+
 
 casper.start('https://app.octoblu.com/');
 

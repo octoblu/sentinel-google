@@ -1,3 +1,5 @@
+var filename = "image";
+
 var assertOnOctobluDashboard = function(casper){
   return casper.waitForSelector(".TabBar-title", function(){
     return;
@@ -9,7 +11,8 @@ var assertOnOctobluDashboard = function(casper){
   });
 };
 
-var buildCasper = function(Casper){
+var buildCasper = function(Casper, _filename){
+  filename = _filename;
   var casper = Casper.create({
     waitTimeout: (10 * 1000),
     onError: (function(error){
@@ -45,7 +48,7 @@ var logout = function(casper){
 
 var randomFilename = function(){
   var a = Math.random();
-  return "image-"+parseInt(a * 1000)+".png";
+  return filename+"-"+parseInt(a * 1000)+".png";
 }
 
 var reportErrors = function(casper, f) {

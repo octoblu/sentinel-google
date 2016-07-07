@@ -3,7 +3,7 @@
 var system  = require('system');
 var helpers = require('./helpers');
 var Casper  = require('casper');
-var casper  = helpers.buildCasper(Casper);
+var casper  = helpers.buildCasper(Casper, 'sentinel-google');
 
 var GOOGLE_USERNAME = system.env.GOOGLE_USERNAME;
 var GOOGLE_PASSWORD = system.env.GOOGLE_PASSWORD;
